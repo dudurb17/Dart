@@ -3,7 +3,6 @@ void main() {
   final verdadeiro = true;
   const String nome = "Eduardo";
 
-  
   double num = 1.43;
   bool falso = false;
   String teste = "teste";
@@ -14,4 +13,11 @@ void main() {
   print(listanomes);
   List<dynamic> eduardo = [nome, 1.80, idade];
   print(eduardo);
+
+  bool maiorDeIdade;
+  if (idade >= 18) {
+    maiorDeIdade = true;
+  } else {
+    maiorDeIdade = false;
+  }
 }
