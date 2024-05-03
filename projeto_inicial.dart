@@ -21,7 +21,18 @@ void main() {
     maiorDeIdade = false;
   }
 
+  int energia=100;
   for (int i = 1; i <= 5; i += 1) {
     print('$i voltas');
   }
+  while(energia>0){
+    print("Mais uma repetição");
+    energia-=10;
+    
+  }
+  do{
+    print("Mais uma repetição");
+    energia-=6;
+
+  }while(energia>0);
 }
