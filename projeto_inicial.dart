@@ -20,4 +20,8 @@ void main() {
   } else {
     maiorDeIdade = false;
   }
+
+  for(int i=0; i<5; i++){
+    print('$i voltas');
+  }
 }
