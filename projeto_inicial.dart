@@ -9,4 +9,6 @@ void main() {
 
   List<String> listanomes = ['Ricarth', "fernando", "eduardo", "ana"];
   print(listanomes);
+  List<dynamic> eduardo=['Eduardo Robetii Bedin', 1.80, 19];
+  print(eduardo);
 }
