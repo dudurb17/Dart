@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
   var idade = 19;
   final verdadeiro = true;
@@ -57,4 +59,9 @@ void main() {
   print(maiorList);
   String maiorFirst = list.firstWhere((element) => element.length > 4);
   print(maiorFirst);
+  print("Qual a sua idade?");
+  String? input = stdin.readLineSync();
+  if (input != null) {
+    print("Sua idade é $input");
+  }
 }
