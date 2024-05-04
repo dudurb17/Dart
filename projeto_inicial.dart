@@ -21,18 +21,40 @@ void main() {
     maiorDeIdade = false;
   }
 
-  int energia=100;
+  int energia = 100;
   for (int i = 1; i <= 5; i += 1) {
     print('$i voltas');
   }
-  while(energia>0){
+  while (energia > 0) {
     print("Mais uma repetição");
-    energia-=10;
-    
+    energia -= 10;
   }
-  do{
+  do {
     print("Mais uma repetição");
-    energia-=6;
+    energia -= 6;
+  } while (energia > 0);
 
-  }while(energia>0);
+  ///lista
+  List<String> list = ["Ricarth", 'Ruan', "da", "Silva"];
+  print(list.sublist(2));
+
+  list.forEach((element) {
+    print(element);
+  });
+
+  String procurando = "Silva";
+  if (list.contains(procurando)) {
+    print("Encontrou");
+  } else {
+    print("Não achou");
+  }
+
+  String myName = list.reduce((value, element) => value + " " + element);
+  print(myName);
+  Iterable maior = list.where((element) => element.length > 4);
+  print(maior);
+  List<String> maiorList = list.where((element) => element.length > 4).toList();
+  print(maiorList);
+  String maiorFirst = list.firstWhere((element) => element.length > 4);
+  print(maiorFirst);
 }
