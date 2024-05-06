@@ -6,13 +6,11 @@ void main() {
   int diaDesdeColheita = 40;
   bool isMadura = funcEstaMadura(diaDesdeColheita);
 
- 
   int quantosDias = funcQuantosDiasMadura(diaDesdeColheita);
   print(quantosDias);
   // funcRecursiva(0, 10);
   mostrarMadura("uva", 40, cor: "preto");
   print(isMadura);
-
 
   Fruta fruta01 = Fruta(nome, peso, cor, sabor, diaDesdeColheita);
   print(fruta01.nome);
@@ -34,6 +32,34 @@ class Fruta {
     print(
         "A sua $nome foi colhida a $diaDesdeColheita dias, e precisa de $diasParaMadura para comer, por tanto está pronta? $isMadura ");
   }
+}
+
+class Alimento {
+  String nome;
+  double peso;
+  String cor;
+  Alimento(this.nome, this.peso, this.cor);
+
+  void printAlimento() {
+    print("Este(a) $nome pesa $peso gramas e é $cor");
+  }
+}
+
+class Legumes extends Alimento {
+  bool isPrecisaCozinhar;
+  Legumes(this.nome, this.peso, this.cor, this.isPrecisaCozinhar);
+}
+
+class Citricas {
+  String nome;
+  double peso;
+  String cor;
+  int diaDesdeColheita;
+  bool? isMadura;
+  double nivelAzedo;
+
+  Citricas(
+      this.nome, this.peso, this.cor, this.diaDesdeColheita, this.nivelAzedo);
 }
 
 //ele chama a prorpia função, porém com uma condição para não entrar em loop
