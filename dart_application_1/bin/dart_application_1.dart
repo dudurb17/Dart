@@ -17,23 +17,6 @@ void main() {
   fruta01.estaMadura(30);
 }
 
-class Fruta {
-  String nome;
-  double peso;
-  String cor;
-  String sabor;
-  int diaDesdeColheita;
-  bool? isMadura;
-  Fruta(this.nome, this.peso, this.cor, this.sabor, this.diaDesdeColheita,
-      {this.isMadura});
-  //basicamente uma função dentro da class, seu nome é metodo
-  estaMadura(int diasParaMadura) {
-    isMadura = diaDesdeColheita >= diasParaMadura;
-    print(
-        "A sua $nome foi colhida a $diaDesdeColheita dias, e precisa de $diasParaMadura para comer, por tanto está pronta? $isMadura ");
-  }
-}
-
 class Alimento {
   String nome;
   double peso;
@@ -45,9 +28,36 @@ class Alimento {
   }
 }
 
+class Fruta extends Alimento {
+  String sabor;
+  int diaDesdeColheita;
+  bool? isMadura;
+  Fruta(String nome, double peso, String cor, this.sabor, this.diaDesdeColheita,
+      {this.isMadura})
+      : super(nome, peso, cor);
+  //basicamente uma função dentro da class, seu nome é metodo
+  void estaMadura(int diasParaMadura) {
+    isMadura = diaDesdeColheita >= diasParaMadura;
+    print(
+        "A sua $nome foi colhida a $diaDesdeColheita dias, e precisa de $diasParaMadura para comer, por tanto está pronta? $isMadura ");
+  }
+
+  void fazerSuco() {
+    print("Você fez um otimo suco de $nome");
+  }
+}
+
 class Legumes extends Alimento {
   bool isPrecisaCozinhar;
-  Legumes(this.nome, this.peso, this.cor, this.isPrecisaCozinhar);
+  Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar)
+      : super(nome, peso, cor);
+  void cozinhar() {
+    if (isPrecisaCozinhar) {
+      print("Pronto, o $nome está cozinhando");
+    } else {
+      print("Pronto, o $nome não está cozinhando");
+    }
+  }
 }
 
 class Citricas {
