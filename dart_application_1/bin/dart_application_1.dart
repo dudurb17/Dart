@@ -15,6 +15,24 @@ void main() {
   Fruta fruta01 = Fruta(nome, peso, cor, sabor, diaDesdeColheita);
   print(fruta01.nome);
   fruta01.estaMadura(30);
+
+  Legumes mandioca = Legumes("mandioca", 1200.4, "Marrom", true);
+  Fruta banana1 = Fruta("Banana", 1000, "Amarela", "Doce", 12);
+  Nozes macadamia1 = Nozes("Macadamia", 500, "branco", "doce", 20, 35);
+  Citricas limao1 = Citricas("Limão", 100, "verde", "Azedo", 19, 9);
+// podemos usar metodos dos pais
+  macadamia1.printAlimento();
+  banana1.printAlimento();
+  mandioca.printAlimento();
+  limao1.printAlimento();
+
+  //chamando os metodos das suas classes
+  mandioca.cozinhar();
+  limao1.fazerSuco();
+
+  // usando classe abastract
+  banana1.separaIngredientes();
+  macadamia1.fazerMassa();
 }
 
 class Alimento {
@@ -28,7 +46,7 @@ class Alimento {
   }
 }
 
-class Fruta extends Alimento {
+class Fruta extends Alimento implements Bolo {
   String sabor;
   int diaDesdeColheita;
   bool? isMadura;
@@ -45,9 +63,25 @@ class Fruta extends Alimento {
   void fazerSuco() {
     print("Você fez um otimo suco de $nome");
   }
+
+  //sobre escreve o metodo
+  @override
+  void separaIngredientes() {
+    print("Catar a $nome");
+  }
+
+  @override
+  void fazerMassa() {
+    print("Misturar a fruta com farrinha, açucar, ovos ... ");
+  }
+
+  @override
+  void assar() {
+    print("Colocar no forno");
+  }
 }
 
-class Legumes extends Alimento {
+class Legumes extends Alimento implements Bolo {
   bool isPrecisaCozinhar;
   Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar)
       : super(nome, peso, cor);
@@ -58,18 +92,50 @@ class Legumes extends Alimento {
       print("Pronto, o $nome não está cozinhando");
     }
   }
+
+  @override
+  void assar() {}
+  @override
+  void fazerMassa() {}
+  @override
+  void separaIngredientes() {}
 }
 
-class Citricas {
-  String nome;
-  double peso;
-  String cor;
-  int diaDesdeColheita;
-  bool? isMadura;
+class Citricas extends Fruta {
   double nivelAzedo;
 
-  Citricas(
-      this.nome, this.peso, this.cor, this.diaDesdeColheita, this.nivelAzedo);
+  Citricas(String nome, double peso, String cor, String sabor,
+      int diaDesdeColheita, this.nivelAzedo)
+      : super(nome, peso, cor, sabor, diaDesdeColheita);
+  void existeRefri(bool existe) {
+    if (existe) {
+      print("Existe refri dessa futra com o nome $nome");
+    } else {
+      print("Não existe refri de $nome");
+    }
+  }
+}
+
+class Nozes extends Fruta {
+  double porcentagemOleoNatural;
+  Nozes(String nome, double peso, String cor, String sabor,
+      int diaDesdeColheita, this.porcentagemOleoNatural)
+      : super(nome, peso, cor, sabor, diaDesdeColheita);
+
+  @override
+  void fazerMassa() {
+    print("Tirar a casca");
+    super.fazerMassa();
+  }
+}
+
+//basicamente um conceito, um molde
+abstract class Bolo {
+  void separaIngredientes();
+
+  void fazerMassa();
+
+  void assar();
 }
 
 //ele chama a prorpia função, porém com uma condição para não entrar em loop
