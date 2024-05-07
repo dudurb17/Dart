@@ -17,12 +17,15 @@ void main() {
   registrarPrecos["São Paulo"] = 1200;
   registrarPrecos["Coronel Freitas"] = 200;
   registrarPrecos["xape"] = 4200;
-  print(registrarPrecos["xape"]);
+  // print(registrarPrecos["xape"]);
   registrarPrecos.remove("São Paulo");
-  print(registrarPrecos);
+  // print(registrarPrecos);
 
-  Pessoa pessoa1 = Pessoa("Eduardo", 19, true);
-  print(pessoa1.idade);
+  // Pessoa pessoa1 = Pessoa("Eduardo", 19, true);
+  // print(pessoa1.idade);
+
+  //var pode receber qualquer tipo, mas nao pode ser mudada em tempo de execução
+  //dynamic pode mudar o tipo em tempo de execução
 }
 
 //nao recomendado
