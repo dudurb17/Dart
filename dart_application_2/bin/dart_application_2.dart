@@ -20,6 +20,9 @@ void main() {
   print(registrarPrecos["xape"]);
   registrarPrecos.remove("São Paulo");
   print(registrarPrecos);
+
+  Pessoa pessoa1 = Pessoa("Eduardo", 19, true);
+  print(pessoa1.idade);
 }
 
 //nao recomendado
@@ -89,5 +92,21 @@ enum Transporte {
   static void tiposDeTransporte() {
     print(
         "Tipos de transportes: carro, bike, andando e skate, aviao, patins e trem.");
+  }
+}
+
+class Pessoa {
+  String nome;
+  int idade;
+  bool estaAutenticada;
+
+  Pessoa(this.nome, this.idade, this.estaAutenticada);
+
+  Map<String, dynamic> toMap() {
+    return {
+      "nome": this.nome,
+      "idade": this.idade,
+      "estaAutenticada": this.estaAutenticada
+    };
   }
 }
