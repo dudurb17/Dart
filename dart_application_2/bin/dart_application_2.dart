@@ -118,6 +118,7 @@ class Pessoa {
 }
 
 class Viagem {
+  //so a class consegue pegar esse valor estatico
   static String codigoTrabalho = "FASDASD23";
   double dinheiro = 0;
 }
