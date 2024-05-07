@@ -1,4 +1,7 @@
 //Interable é uma coleção de elementos e uma classe abastrata
+//var pode receber qualquer tipo, mas nao pode ser mudada em tempo de execução
+//dynamic pode mudar o tipo em tempo de execução
+//var e dynamic nao precisa de inicialização de variavel
 
 void main() {
   // escolherMeioTransporte(1);
@@ -9,7 +12,7 @@ void main() {
   registrosVisitados = registrarDestinos("Coronel freitas", registrosVisitados);
   registrosVisitados = registrarDestinos("Xape", registrosVisitados);
   registrosVisitados = registrarDestinos("São Paulo", registrosVisitados);
-  print(registrosVisitados);
+  // print(registrosVisitados);
 
   //map seria um dicionario em outras linguagens de programação
   Map<String, double> registrarPrecos = {};
@@ -24,9 +27,8 @@ void main() {
   // Pessoa pessoa1 = Pessoa("Eduardo", 19, true);
   // print(pessoa1.idade);
 
-  //var pode receber qualquer tipo, mas nao pode ser mudada em tempo de execução
-  //dynamic pode mudar o tipo em tempo de execução
-  //var e dynamic nao precisa de inicialização de variavel
+  Viagem viagemHoje = Viagem();
+  print(Viagem.codigoTrabalho);
 }
 
 //nao recomendado
@@ -113,4 +115,9 @@ class Pessoa {
       "estaAutenticada": this.estaAutenticada
     };
   }
+}
+
+class Viagem {
+  static String codigoTrabalho = "FASDASD23";
+  double dinheiro = 0;
 }
