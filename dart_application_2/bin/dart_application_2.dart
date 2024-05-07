@@ -1,3 +1,5 @@
+//Interable é uma coleção de elementos e uma classe abastrata
+
 void main() {
   // escolherMeioTransporte(1);
   Transporte.tiposDeTransporte();
