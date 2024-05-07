@@ -9,4 +9,5 @@ import 'viagem.dart';
 void main() {
   Viagem viagemMaio = Viagem(locomocao: Transporte.andando);
   print(viagemMaio.consultarTotalLocaisVisitados);
-}
+}//teste
+
