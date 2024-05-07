@@ -65,6 +65,10 @@ class Viagem {
   }
 
   void set alterarLocaisVisitados(int novaQnt) {
-    _totalLocaisVisitados = novaQnt;
+    if (novaQnt < 10) {
+      _totalLocaisVisitados = novaQnt;
+    } else {
+      print("Não é possivel!");
+    }
   }
 }
