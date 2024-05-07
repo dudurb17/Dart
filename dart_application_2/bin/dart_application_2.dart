@@ -10,6 +10,16 @@ void main() {
   registrosVisitados = registrarDestinos("Xape", registrosVisitados);
   registrosVisitados = registrarDestinos("São Paulo", registrosVisitados);
   print(registrosVisitados);
+
+  //map seria um dicionario em outras linguagens de programação
+  Map<String, double> registrarPrecos = {};
+
+  registrarPrecos["São Paulo"] = 1200;
+  registrarPrecos["Coronel Freitas"] = 200;
+  registrarPrecos["xape"] = 4200;
+  print(registrarPrecos["xape"]);
+  registrarPrecos.remove("São Paulo");
+  print(registrarPrecos);
 }
 
 //nao recomendado
@@ -58,7 +68,8 @@ void escolherMeioTransporteEnum(Transporte locomocao) {
       print("Nao achei a categoria q vc vai passear");
   }
 }
-//set nao deixar duplicar o mesmo valor ex: dentro de uma lista 
+
+//set nao deixar duplicar o mesmo valor ex: dentro de uma lista
 registrarDestinos(String destino, Set<String> banco) {
   banco.add(destino);
   return banco;
