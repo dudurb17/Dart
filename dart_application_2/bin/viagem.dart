@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'transporte.dart';
 
 class Viagem {
@@ -51,6 +53,7 @@ class Viagem {
 
   void visitar(String localVisita) {
     registrosVisitados.add(localVisita);
+    _totalLocaisVisitados += 1;
   }
 
   void registrarPrecoVisita(String local, dynamic preco) {
@@ -59,5 +62,9 @@ class Viagem {
 
   int get consultarTotalLocaisVisitados {
     return _totalLocaisVisitados;
+  }
+
+  void set alterarLocaisVisitados(int novaQnt) {
+    _totalLocaisVisitados = novaQnt;
   }
 }
